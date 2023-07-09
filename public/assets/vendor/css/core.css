@@ -4603,7 +4603,6 @@ textarea.form-control-lg {
   top: 0;
   left: 0;
   z-index: 1090;
-  display: none;
   width: 100%;
   height: 100%;
   overflow-x: hidden;

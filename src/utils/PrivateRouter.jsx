@@ -8,8 +8,8 @@ function PrivateRouter({ children }) {
     const auth = localStorage.getItem("token")
 
     useEffect(() => {
-        if (!auth) {
-            return navigate("/")
+        if (auth) {
+            return navigate("/login")
         }
     }, [auth, navigate, children])
 

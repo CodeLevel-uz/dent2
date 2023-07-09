@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { BiWorld, BiMessageDetail, BiNews, BiUser, BiFile,BiMoneyWithdraw } from "react-icons/bi";
-import { BsTelegram } from "react-icons/bs"
-import { FaUsers } from "react-icons/fa"
-import { AiOutlineBarcode } from "react-icons/ai"
-import { GiCommercialAirplane } from "react-icons/gi"
+import { BiWorld } from "react-icons/bi";
 
 function Aside() {
     const { pathname } = useLocation()
+    const [role, setRole] = useState("superadmin")
 
     console.log(pathname);
     return (
@@ -17,7 +14,7 @@ function Aside() {
                     <img src="../assets/img/logo.png" alt="Logo" height={"180px"} />
 
                 </Link> */}
-                    <h1>Logo</h1>
+                <h1>Logo</h1>
 
                 <a href="/" className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                     <i className="bx bx-chevron-left bx-sm align-middle"></i>
@@ -27,12 +24,16 @@ function Aside() {
             <div className="menu-inner-shadow"></div>
 
             <ul className="menu-inner py-1">
-                <li className={`my-1 menu-item ${pathname === "/organization" && "active"}`}>
-                    <Link to="/organization" className="menu-link">
-                        <BiWorld fontSize={"18px"} className='me-2' />
-                        <div data-i18n="Analytics">Organizatsiyalar</div>
-                    </Link>
-                </li>
+                {
+                    role === "superadmin" && (
+                        <li className={`my-1 menu-item ${pathname === "/organization" && "active"}`}>
+                            <Link to="/organization" className="menu-link">
+                                <BiWorld fontSize={"18px"} className='me-2' />
+                                <div data-i18n="Analytics">Organizatsiyalar</div>
+                            </Link>
+                        </li>
+                    )
+                }
             </ul>
         </aside>
     )
