@@ -9,16 +9,19 @@ function AddModal({ data, setData, addModal, setAddModal, Alert, setAlert }) {
         console.log({
             name: nameRef.current.value,
         });
-        axiosInstance.post(`/create`, {
-            name: nameRef.current.value,
-        }).then((res) => {
-            Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
-            setData([...data, res.data])
-            setAddModal(false)
-        })
+        // axiosInstance.post(`/create`, {
+        //     name: nameRef.current.value,
+        // }).then((res) => {
+        // })
+        Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
+        setData([...data, {
+            id: data[data.length - 1].id + 1 || 0,
+            name: nameRef.current.value
+        }])
+        setAddModal(false)
     }
-  return (
-    <div className="modal">
+    return (
+        <div className="modal">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content" >
                     <div className="modal-header bg-primary py-3">
@@ -48,7 +51,7 @@ function AddModal({ data, setData, addModal, setAddModal, Alert, setAlert }) {
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
 export default AddModal

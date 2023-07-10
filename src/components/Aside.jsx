@@ -4,7 +4,6 @@ import { BiWorld } from "react-icons/bi";
 
 function Aside() {
     const { pathname } = useLocation()
-    const [role, setRole] = useState("superadmin")
 
     console.log(pathname);
     return (
@@ -24,16 +23,19 @@ function Aside() {
             <div className="menu-inner-shadow"></div>
 
             <ul className="menu-inner py-1">
-                {
-                    role === "superadmin" && (
-                        <li className={`my-1 menu-item ${pathname === "/organization" && "active"}`}>
-                            <Link to="/organization" className="menu-link">
-                                <BiWorld fontSize={"18px"} className='me-2' />
-                                <div data-i18n="Analytics">Organizatsiyalar</div>
-                            </Link>
-                        </li>
-                    )
-                }
+                <li className={`my-1 menu-item ${pathname === "/organization" && "active"}`}>
+                    <Link to="/organization" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Organizatsiyalar</div>
+                    </Link>
+                </li>
+
+                <li className={`my-1 menu-item ${pathname === "/position" && "active"}`}>
+                    <Link to="/position" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Lavozimlar</div>
+                    </Link>
+                </li>
             </ul>
         </aside>
     )
