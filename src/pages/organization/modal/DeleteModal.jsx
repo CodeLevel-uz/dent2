@@ -1,14 +1,18 @@
 import React from 'react'
-import axiosInstance from '../../../utils/config'
+import axios from 'axios'
 
 function DeleteModal({ data, setData, deleteModal, setDeleteModal, Alert, setAlert }) {
     const deleteFunc = (e) => {
         e.preventDefault()
-        axiosInstance.delete(`/deleteById/${deleteModal.id}`).then((res) => {
-            const newData = data.filter((item) => item.id !== deleteModal.id)
+        axios.delete(`http://95.47.127.171/api/Organizations/Delete`, {
+            headers: {
+                token: deleteModal.token
+            }
+        }).then((res) => {
+            const newData = data.filter((item) => item.token !== deleteModal.token)
             Alert(setAlert, "success", "Muvafaqqiyatli o'chirildi!");
             setData(newData)
-            setDeleteModal({ isShow: false, id: 0 })
+            setDeleteModal({ isShow: false, token: "" })
         })
     }
 
@@ -19,7 +23,7 @@ function DeleteModal({ data, setData, deleteModal, setDeleteModal, Alert, setAle
                     <div className="modal-header bg-primary py-3">
                         <h5 className="modal-title text-white">Organizatsiyani o'chirish</h5>
                         <button type="button" className="btn-close"
-                            onClick={() => setDeleteModal({ isShow: false, id: 0 })}></button>
+                            onClick={() => setDeleteModal({ isShow: false, token: "" })}></button>
                     </div>
                     <div className="modal-body">
                         <form onSubmit={deleteFunc}>
@@ -33,7 +37,7 @@ function DeleteModal({ data, setData, deleteModal, setDeleteModal, Alert, setAle
 
                                 <div className="col-lg-6">
                                     <button className="btn-lg btn btn-success w-100" type='button'
-                                        onClick={() => setDeleteModal({ isShow: false, id: 0 })}>
+                                        onClick={() => setDeleteModal({ isShow: false, token: "" })}>
                                         Bekor qilish
                                     </button>
                                 </div>
