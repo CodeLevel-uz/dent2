@@ -36,6 +36,41 @@ function Aside() {
                         <div data-i18n="Analytics">Lavozimlar</div>
                     </Link>
                 </li>
+
+                <li className={`my-1 menu-item ${pathname === "/direct" && "active"}`}>
+                    <Link to="/direct" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Yo'nalish</div>
+                    </Link>
+                </li>
+
+                <li className={`my-1 menu-item ${pathname === "/pupil" && "active"}`}>
+                    <Link to="/pupil" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">O'quvchi</div>
+                    </Link>
+                </li>
+
+                <li className={`my-1 menu-item ${pathname === "/action" && "active"}`}>
+                    <Link to="/action" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Harakatlar</div>
+                    </Link>
+                </li>
+
+                <li className={`my-1 menu-item ${pathname === "/version" && "active"}`}>
+                    <Link to="/version" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Versiyalar</div>
+                    </Link>
+                </li>
+
+                <li className={`my-1 menu-item ${pathname === "/api_settings" && "active"}`}>
+                    <Link to="/api_settings" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Sozlamalar</div>
+                    </Link>
+                </li>
             </ul>
         </aside>
     )

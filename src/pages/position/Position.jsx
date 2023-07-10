@@ -4,11 +4,11 @@ import axiosInstance from '../../utils/config';
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Pagination from '../../components/Pagination';
 import AlertContent, { Alert } from '../../components/Alert';
-import DeleteModal from '../position/modal/DeleteModal';
-import EditModal from '../position/modal/EditModal';
-import AddModal from '../position/modal/AddModal';
+import DeleteModal from './modal/DeleteModal';
+import EditModal from './modal/EditModal';
+import AddModal from './modal/AddModal';
 
-function Organization() {
+function Position() {
     const [alert, setAlert] = useState({ open: false, color: "", text: "" });
 
     const [page, setPage] = useState(0)
@@ -83,7 +83,7 @@ function Organization() {
                         <thead>
                             <tr className='text-center'>
                                 <th>№</th>
-                                <th>Organizatsiya nomi</th>
+                                <th>Lavozim nomi</th>
                                 <th>Amallar</th>
                             </tr>
                         </thead>
@@ -163,7 +163,7 @@ function Organization() {
     )
 }
 
-export default Organization
+export default Position
 
 const Wrapper = styled.section`
     
