@@ -10,6 +10,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/organization' element={<PrivateRouter> <Layout> <Organization /> </Layout> </PrivateRouter>} />
+      <Route path='/license' element={<PrivateRouter> <Layout> <Organization /> </Layout> </PrivateRouter>} />
       <Route path='/position' element={<PrivateRouter> <Layout> <Position /> </Layout> </PrivateRouter>} />
     </Routes>
   );

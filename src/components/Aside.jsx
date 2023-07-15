@@ -58,6 +58,13 @@ function Aside() {
                     </Link>
                 </li>
 
+                <li className={`my-1 menu-item ${pathname === "/license" && "active"}`}>
+                    <Link to="/license" className="menu-link">
+                        <BiWorld fontSize={"18px"} className='me-2' />
+                        <div data-i18n="Analytics">Litsenziya</div>
+                    </Link>
+                </li>
+
                 <li className={`my-1 menu-item ${pathname === "/version" && "active"}`}>
                     <Link to="/version" className="menu-link">
                         <BiWorld fontSize={"18px"} className='me-2' />
